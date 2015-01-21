@@ -1,0 +1,171 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_row %}
+    {% set type = type|default('text') %}
+    {% spaceless %}
+        <div class="form-group {% if form.vars.errors|length > 0%}has-error{%endif%}">
+            {{ form_label(form, null, { 'label_attr': {'class': 'col-sm-3 col-md-3 col-lg-2 control-label'}}) }}
+            <div class="col-sm-9 col-md-9 col-lg-10 {{ form.vars.block_prefixes.1 }}">
+                {{ form_widget(form) }}
+                {% if form.vars.errors|length > 0 %}
+                    <div class="help-inline">
+                        {{ form_errors(form) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock form_row %}
+
+
+{% block form_widget -%}
+    {{ parent() }}
+    {% if sonata_admin.field_description.help is defined and sonata_admin.field_description.help %}
+        <span class="help-block no-error">{{ help|raw }}</span>
+    {% endif %}
+{%- endblock form_widget %}
+
+
+{% block form_widget_simple %}
+    {% spaceless %}
+        {% set type = type|default('text') %}
+        {% set attr = attr|merge({'class': 'form-control'}) %}
+        <input type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    {% endspaceless %}
+{% endblock form_widget_simple %}
+
+
+{% block choice_widget_collapsed %}
+    {% spaceless %}
+        {% if multiple %}
+            <div id="ms-custom-headers">
+                <select class="multiselect" multiple="multiple" {{ block('widget_attributes') }}>
+                    {% set options = choices %}
+                    {{ block('choice_widget_options') }}
+                </select>
+            </div>
+        {% else %}
+            <select class="oneselect" {{ block('widget_attributes') }}>
+                {% if placeholder is not none -%}
+                    <option value="" {% if value is empty %} selected="selected"{% endif %}>{{ placeholder|trans({}, 'admin') }}</option>
+                {%- endif %}
+
+                {% set options = choices %}
+                {{ block('choice_widget_options') }}
+            </select>
+        {% endif %}
+    {% endspaceless %}
+{% endblock choice_widget_collapsed %}
+
+
+{% block money_object_widget %}
+    {% spaceless %}
+        <div class="row">
+            <div class="col-sm-6">
+                {{ form_widget(form.amount) }}
+            </div>
+            <div class="col-sm-6">
+                {{  form_widget(form.currency) }}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock money_object_widget %}
+
+
+{% block datetime_widget %}
+    {% spaceless %}
+        <div class="input-group date datetime col-md-6 col-xs-6"
+             data-start-view="0"
+             data-date="{{ value }}"
+             data-date-format="yyyy-mm-dd - HH:ii:ss"
+             data-link-field="dtp_input1"
+                >
+            <input {{ block('widget_attributes') }} class="form-control" size="16" type="text" value="{{ value }}" />
+            <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
+        </div>
+    {% endspaceless %}
+{% endblock datetime_widget %}
+
+
+{% block checkbox_widget %}
+    {% spaceless %}
+        <input type="checkbox" data-size="small" class="switch" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+    {% endspaceless %}
+{% endblock checkbox_widget %}
+
+
+{% block url_widget %}
+    {% spaceless %}
+        {% set type = type|default('url') %}
+        {% set attr = attr|merge({'parsley-type': 'url'}) %}
+        {{ block('form_widget_simple') }}
+    {% endspaceless %}
+{% endblock url_widget %}
+
+
+{% block textarea_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' form-control'}) %}
+        <textarea {{ block('widget_attributes') }}>{{ value }}</textarea>
+    {% endspaceless %}
+{% endblock textarea_widget %}
+
+
+{% block rich_editor_widget %}
+    {% spaceless %}
+        {% set attr = attr|merge({'class': attr.class|default('') ~ ' tinymce'}) %}
+        {{ block('textarea_widget') }}
+    {% endspaceless %}
+{% endblock rich_editor_widget %}
+
+
+{% block repeated_row %}
+    {% spaceless %}
+        <div class="form-group {% if form.first.vars.errors|length > 0%}has-error{%endif%}">
+            {{ form_label(form, null, { 'label_attr': {'class': 'col-sm-3 col-md-3 col-lg-2 control-label'}}) }}
+            <div class="col-sm-9 col-md-9 col-lg-10 {{ form.vars.block_prefixes.1 }}">
+                {{- form_widget(form.first, {'attr' : {'class' : 'form-control'}}) -}}
+                {% if form.first.vars.errors|length > 0 %}
+                    <div class="help-inline">
+                        {{ form_errors(form.first) }}
+                    </div>
+                {% endif %}
+                {{- form_label(form.second, null, { 'label_attr': {'class': 'control-label'}}) -}}
+                {{- form_widget(form.second, {'attr' : {'class' : 'form-control'}}) -}}
+            </div>
+        </div>
+    {% endspaceless %}
+{% endblock repeated_row %}
+
+
+{% block gallery_widget %}
+    {% set admin = sonata_admin.field_description.admin %}
+    {% if admin.hasroute('create') and admin.isGranted('CREATE') and btn_add %}
+        <a href="{{ url('sonata_admin_append_form_element', {
+            'code':      sonata_admin.admin.root.code,
+            'elementId': id,
+            'objectId':  sonata_admin.admin.root.id(sonata_admin.admin.root.subject),
+            'uniqid':    sonata_admin.admin.root.uniqid
+        } + sonata_admin.field_description.getOption('link_parameters', {})) }}" class="btn btn-inverse btn-sm add_new_image"><i class="fa fa-plus"></i> {{'add_new_image'|trans({}, 'admin')}}</a>
+    {% endif %}
+    <div class="gallery-masonry clearfix">
+        {% for image in form.vars.value %}
+            {% set imageResize = image|resize({'height': 230, 'width': 230, 'type': 4}) %}
+            {% set imageView = image|viewImage %}
+            <div class="item" id="{{ admin.uniqid }}_{{ loop.index }}_img">
+                <a href="#" class="group-images thumbnail {% if loop.first %}principal{% endif %}">
+                    <img id="image-{{ image.id }}" src="{{ imageResize }}" width="230" />
+                </a>
+                <div class="actions">
+                    <div class="actions-inner">
+                        <a title="{{image.name}}" href="{{ imageView }}" class="tip-top fancybox" data-original-title="View">
+                            <i class="fa fa-eye"></i>
+                        </a>
+                        <a title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}" href="#{{ admin.uniqid }}_{{ loop.index }}_box" class="tip-top edit-image" data-original-title="{{ 'action_edit'|trans({}, 'SonataAdminBundle') }}" data-id="{{image.id}}" data-key="{{ admin.uniqid }}_{{ loop.index }}"><i class="fa fa-pencil"></i></a>
+                        <a title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}" href="#" class="tip-top delete-image" data-original-title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}" data-id="{{image.id}}" data-key="{{ admin.uniqid }}_{{ loop.index }}" data-class="{{ class(image) }}"><i class="fa fa-trash-o"></i></a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock gallery_widget %}

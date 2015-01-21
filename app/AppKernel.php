@@ -24,16 +24,38 @@ class AppKernel extends Kernel
              */
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
 
+            /** SonataAdmin bundles */
+            new \Sonata\CoreBundle\SonataCoreBundle(),
+            new \Sonata\BlockBundle\SonataBlockBundle(),
+            new \Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new \Sonata\AdminBundle\SonataAdminBundle(),
+            new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
+
             /**
              * Third-party bundles
              */
             new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
+            new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
+            new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+
+            /**
+             * Elcodi core bundles
+             */
+            new \Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
+            new \Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle(),
+            new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
+
+            /**
+             * QBH store bundles
+             */
+            new \QBH\AdminCoreBundle\AdminCoreBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\DebugBundle\DebugBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
+            $bundles[] = new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle();
         }
 
         return $bundles;

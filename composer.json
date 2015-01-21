@@ -24,14 +24,31 @@
         "doctrine/orm": "~2.4",
         "doctrine/doctrine-bundle": "~1.3",
 
+        "elcodi/core-bundle": "~0.4",
+        "elcodi/currency-bundle": "~0.4",
+        "elcodi/cart-bundle": "~0.4",
+        "elcodi/product-bundle": "~0.4",
+        "elcodi/user-bundle": "~0.4",
+        "elcodi/state-transition-machine-bundle": "~0.4",
+        "elcodi/entity-translator-bundle": "~0.4",
+        "elcodi/language-bundle": "~0.4",
+        "elcodi/bamboo-fixtures": "~0.4",
+        "elcodi/menu-bundle": "~0.4",
+
         "sonata-project/admin-bundle": "2.3.1",
         "sonata-project/doctrine-orm-admin-bundle": "2.3.0",
 
-        "twig/extensions": "~1.2",
-        "sensio/distribution-bundle": "~3.0.12",
+        "twig/extensions": "~1.1",
+        "sensio/distribution-bundle": "~3.0",
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.1",
-	    "lexik/translation-bundle": "dev-master"
+        "mmoreram/controller-extra-bundle": "~1.1",
+        "besimple/i18n-routing-bundle": "2.3.*@dev",
+        "knplabs/gaufrette": "~0.1",
+        "knplabs/knp-menu-bundle": "~1.1.2",
+        "knplabs/doctrine-behaviors" : "~1.0.2",
+        "friendsofsymfony/jsrouting-bundle": "~1.5.3",
+        "lexik/translation-bundle": "dev-master"
     },
     "require-dev": {
         "mmoreram/php-formatter": "~1.0",

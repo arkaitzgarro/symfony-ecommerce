@@ -33,9 +33,9 @@ twig:
 
 # Assetic Configuration
 assetic:
+    bundles: []
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
     filters:
         cssrewrite: ~
 
@@ -85,3 +85,9 @@ sonata_admin:
         layout:  AdminCoreBundle::standard_layout.html.twig
         list:    AdminCoreBundle:CRUD:list.html.twig
         edit:    AdminCoreBundle:CRUD:edit.html.twig
+
+elcodi_currency:
+    currency:
+        default_currency: EUR
+    rates_provider:
+        currency_base: EUR
