@@ -22,7 +22,8 @@ class AppKernel extends Kernel
             /**
              * Doctrine bundles
              */
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
+            new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
 
             /** SonataAdmin bundles */
             new \Sonata\CoreBundle\SonataCoreBundle(),
@@ -34,21 +35,40 @@ class AppKernel extends Kernel
             /**
              * Third-party bundles
              */
-            new Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
-            new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
+            new \Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
+            new \BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
+            new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
 
             /**
              * Elcodi core bundles
              */
             new \Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
+            new \Elcodi\Bundle\UserBundle\ElcodiUserBundle(),
+            new \Elcodi\Bundle\MediaBundle\ElcodiMediaBundle(),
             new \Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle(),
+            new \Elcodi\Bundle\AttributeBundle\ElcodiAttributeBundle(),
+            new \Elcodi\Bundle\ProductBundle\ElcodiProductBundle(),
+            new \Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
+            new \Elcodi\Bundle\GeoBundle\ElcodiGeoBundle(),
+            new \Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
+            new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
             new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
+            new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
+            new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
 
             /**
              * QBH store bundles
              */
+            new \QBH\AdminBundle\AdminBundle(),
             new \QBH\AdminCoreBundle\AdminCoreBundle(),
+            new \QBH\StoreBundle\StoreBundle(),
+            new \QBH\StoreConfigurationBundle\StoreConfigurationBundle(),
+            new \QBH\StoreCoreBundle\StoreCoreBundle(),
+            new \QBH\StoreCurrencyBundle\StoreCurrencyBundle(),
+            new \QBH\StoreProductBundle\StoreProductBundle(),
+            new \QBH\StoreUserBundle\StoreUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

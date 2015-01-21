@@ -1,7 +1,10 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: services.yml }
+#    - { resource: @StoreBundle/Resources/config/translations.yml }
+    - { resource: @StoreBundle/Resources/config/mappings.yml }
+    - { resource: @StoreBundle/Resources/config/filesystem.yml }
+    - { resource: @StoreBundle/Resources/config/cache.yml }
 
 framework:
     #esi:             ~
@@ -66,6 +69,8 @@ lexik_translation:
     fallback_locale: %locale%
     managed_locales: %locales%
 
+be_simple_i18n_routing: ~
+
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -86,8 +91,19 @@ sonata_admin:
         list:    AdminCoreBundle:CRUD:list.html.twig
         edit:    AdminCoreBundle:CRUD:edit.html.twig
 
+elcodi_configuration:
+    elements:
+        0:
+            key: store_name
+            name: Store name
+            reference: reference
+
 elcodi_currency:
     currency:
         default_currency: EUR
     rates_provider:
         currency_base: EUR
+
+elcodi_product:
+    products:
+        use_stock: true

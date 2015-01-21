@@ -1,0 +1,49 @@
+elcodi_entity_translator:
+    auto_translate: true
+    language:
+        master_locale: es
+        fallback: true
+    configuration:
+        Elcodi\Component\Language\Entity\Interfaces\LanguageInterface:
+            alias: language
+            idGetter: getIso
+            fields:
+                name: ~
+        Elcodi\Component\Product\Entity\Interfaces\ManufacturerInterface:
+            alias: manufacturer
+            fields:
+                name: ~
+                slug: ~
+                description: ~
+                slug: ~
+                metaTitle: ~
+                metaDescription: ~
+                metaKeywords: ~
+        Elcodi\Component\Product\Entity\Interfaces\ProductInterface:
+            alias: product
+            fields:
+                name: ~
+                slug: ~
+                description: ~
+                shortDescription: ~
+                metaTitle: ~
+                metaDescription: ~
+                metaKeywords: ~
+        QBH\StoreProductBundle\Entity\Category:
+            alias: category
+            fields:
+                name: ~
+                description: ~
+                slug: ~
+                metaTitle: ~
+                metaDescription: ~
+                metaKeywords: ~
+
+        QBH\StoreProductBundle\Entity\ProductTag:
+            alias: product_tag
+            fields:
+                name: ~
+                slug: ~
+                metaTitle: ~
+                metaDescription: ~
+                metaKeywords: ~

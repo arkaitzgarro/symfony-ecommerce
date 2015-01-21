@@ -1,0 +1,100 @@
+services:
+
+    qbh.admin.admin.configuration:
+        class: QBH\AdminBundle\Admin\ConfigurationAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Configuración", label: "Configuración" }
+        arguments: [ null, QBH\StoreConfigurationBundle\Entity\Configuration, SonataAdminBundle:CRUD, "elcodi.factory.configuration" ]
+        calls:
+            - [ setTranslationDomain, [ admin ] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setBaseRouteName, [configuration] ]
+            - [ setBaseRoutePattern, [configuration] ]
+
+    qbh.admin.admin.user:
+         class: QBH\AdminBundle\Admin\UserAdmin
+         tags:
+             - { name: sonata.admin, manager_type: orm, group: "Configuración", label: "Administradores" }
+         arguments: [ null, Elcodi\Component\User\Entity\AdminUser, SonataAdminBundle:CRUD, "elcodi.factory.admin_user" ]
+         calls:
+             - [ setTranslationDomain, [ admin ] ]
+             - [ setContainer, [ @service_container ] ]
+             - [ setBaseRouteName, [admin_user] ]
+             - [ setBaseRoutePattern, [admin_user] ]
+
+    qbh.admin.admin.currencies:
+         class: QBH\AdminBundle\Admin\CurrencyAdmin
+         tags:
+             - { name: sonata.admin, manager_type: orm, group: "Configuración", label: "Monedas" }
+         arguments: [ null, QBH\StoreCurrencyBundle\Entity\Currency, SonataAdminBundle:CRUD, "elcodi.factory.currency" ]
+         calls:
+             - [ setTranslationDomain, [ admin ] ]
+             - [ setContainer, [ @service_container ] ]
+             - [ setBaseRouteName, [currency] ]
+             - [ setBaseRoutePattern, [currency] ]
+
+    qbh.admin.admin.languages:
+         class: QBH\AdminBundle\Admin\LanguageAdmin
+         tags:
+             - { name: sonata.admin, manager_type: orm, group: "Configuración", label: "Idiomas" }
+         arguments: [ null, Elcodi\Component\Language\Entity\Language, SonataAdminBundle:CRUD, "elcodi.factory.language" ]
+         calls:
+             - [ setTranslationDomain, [ admin ] ]
+             - [ setContainer, [ @service_container ] ]
+             - [ setBaseRouteName, [language] ]
+             - [ setBaseRoutePattern, [language] ]
+
+    qbh.admin.admin.manufacturer:
+        class: QBH\AdminBundle\Admin\ManufacturerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Catálogo", label: "Marcas" }
+        arguments: [ null, QBH\StoreProductBundle\Entity\Manufacturer, SonataAdminBundle:CRUD, "elcodi.factory.manufacturer" ]
+        calls:
+            - [ setTranslationDomain, [ admin ] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setBaseRouteName, [manufacturer] ]
+            - [ setBaseRoutePattern, [manufacturer] ]
+
+    qbh.admin.admin.category:
+        class: QBH\AdminBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Catálogo", label: "Categorías" }
+        arguments: [ null, QBH\StoreProductBundle\Entity\Category, SonataAdminBundle:CRUD, "elcodi.factory.category" ]
+        calls:
+            - [ setTranslationDomain, [ admin ] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setBaseRouteName, [category] ]
+            - [ setBaseRoutePattern, [category] ]
+
+    qbh.admin.admin.products:
+        class: QBH\AdminBundle\Admin\ProductAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Catálogo", label: "Productos" }
+        arguments: [ null, QBH\StoreProductBundle\Entity\Product, SonataAdminBundle:CRUD, "elcodi.factory.product" ]
+        calls:
+            - [ setTranslationDomain, [ admin ] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setBaseRouteName, [product] ]
+            - [ setBaseRoutePattern, [product] ]
+
+    qbh.admin.admin.products_tags:
+        class: QBH\AdminBundle\Admin\ProductTagAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Catálogo", label: "Tags" }
+        arguments: [ null, QBH\StoreProductBundle\Entity\ProductTag, SonataAdminBundle:CRUD, "qbh.factory.product_tag" ]
+        calls:
+            - [ setTranslationDomain, [ admin ] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setBaseRouteName, [product_tag] ]
+            - [ setBaseRoutePattern, [product_tag] ]
+
+    qbh.admin.admin.customer:
+        class: QBH\AdminBundle\Admin\CustomerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Usuarios", label: "Clientes" }
+        arguments: [ null, Elcodi\Component\User\Entity\Customer, SonataAdminBundle:CRUD, "elcodi.factory.customer" ]
+        calls:
+            - [ setTranslationDomain, [ admin ] ]
+            - [ setContainer, [ @service_container ] ]
+            - [ setBaseRouteName, [customer] ]
+            - [ setBaseRoutePattern, [customer] ]

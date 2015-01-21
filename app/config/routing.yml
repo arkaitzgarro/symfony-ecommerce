@@ -26,3 +26,10 @@ admin_login_check:
 
 admin_logout:
     path: /gestor/logout
+
+core_media_bundle:
+    resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+store_bundle:
+    resource: "@StoreBundle/Resources/config/routing.yml"
+    type: be_simple_i18n
