@@ -17,13 +17,13 @@ class AppKernel extends Kernel
             new Symfony\Bundle\MonologBundle\MonologBundle(),
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             /**
              * Doctrine bundles
              */
             new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new \Doctrine\Bundle\DoctrineCacheBundle\DoctrineCacheBundle(),
+            new \Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
 
             /** SonataAdmin bundles */
             new \Sonata\CoreBundle\SonataCoreBundle(),
@@ -35,28 +35,28 @@ class AppKernel extends Kernel
             /**
              * Third-party bundles
              */
-            new \Lexik\Bundle\TranslationBundle\LexikTranslationBundle(),
             new \BeSimple\I18nRoutingBundle\BeSimpleI18nRoutingBundle(),
-            new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new \Knp\Bundle\GaufretteBundle\KnpGaufretteBundle(),
             new \Mmoreram\ControllerExtraBundle\ControllerExtraBundle(),
+            new \Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             /**
              * Elcodi core bundles
              */
+            new \Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
             new \Elcodi\Bundle\CoreBundle\ElcodiCoreBundle(),
+            new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
+            new \Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle(),
+            new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
+            new \Elcodi\Bundle\ProductBundle\ElcodiProductBundle(),
+            new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
             new \Elcodi\Bundle\UserBundle\ElcodiUserBundle(),
             new \Elcodi\Bundle\MediaBundle\ElcodiMediaBundle(),
-            new \Elcodi\Bundle\CurrencyBundle\ElcodiCurrencyBundle(),
             new \Elcodi\Bundle\AttributeBundle\ElcodiAttributeBundle(),
-            new \Elcodi\Bundle\ProductBundle\ElcodiProductBundle(),
-            new \Elcodi\Bundle\CartBundle\ElcodiCartBundle(),
             new \Elcodi\Bundle\GeoBundle\ElcodiGeoBundle(),
             new \Elcodi\Bundle\EntityTranslatorBundle\ElcodiEntityTranslatorBundle(),
-            new \Elcodi\Bundle\StateTransitionMachineBundle\ElcodiStateTransitionMachineBundle(),
-            new \Elcodi\Bundle\LanguageBundle\ElcodiLanguageBundle(),
             new \Elcodi\Bundle\MenuBundle\ElcodiMenuBundle(),
-            new \Elcodi\Bundle\ConfigurationBundle\ElcodiConfigurationBundle(),
 
             /**
              * QBH store bundles

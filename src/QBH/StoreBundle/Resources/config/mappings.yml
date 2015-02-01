@@ -1,8 +1,8 @@
-elcodi_configuration:
-    mapping:
-        configuration:
-            class: QBH\StoreConfigurationBundle\Entity\Configuration
-            mapping_file: @StoreConfigurationBundle\Resources/config/doctrine/Configuration.orm.yml
+#elcodi_configuration:
+#    mapping:
+#        configuration:
+#            class: QBH\StoreConfigurationBundle\Entity\Configuration
+#            mapping_file: @StoreConfigurationBundle\Resources/config/doctrine/Configuration.orm.yml
 
 elcodi_currency:
     mapping:

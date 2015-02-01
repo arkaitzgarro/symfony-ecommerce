@@ -17,10 +17,6 @@ admin_core:
     resource: "@AdminCoreBundle/Resources/config/routing.yml"
     prefix: /gestor
 
-lexik_translation_edition:
-    resource: "@LexikTranslationBundle/Resources/config/routing.yml"
-    prefix:   /gestor/traducciones
-
 admin_login_check:
     path:  /gestor/login_check
 
