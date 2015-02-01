@@ -1,0 +1,20 @@
+<ul class="user-menu">
+    {#<li>#}
+        {#<a href="#">#}
+            {#<span class="hidden-xs"> {{ 'my_account'|trans({}, 'store') }}</span>#}
+            {#<i class="glyphicon glyphicon-user hide visible-xs "></i>#}
+        {#</a>#}
+    {#</li>#}
+    <li>
+        <a href="{{ path('store_login') }}" data-toggle="modal" data-target="#ModalLogin">
+            <span class="hidden-xs">{{ 'sign_in'|trans({}, 'store') }}</span>
+            <i class="glyphicon glyphicon-log-in hide visible-xs "></i>
+        </a>
+    </li>
+    <li>
+        <a href="#" data-toggle="modal" data-target="#ModalSignup">
+            <span class="hidden-xs">{{ 'create_account'|trans({}, 'store') }}</span>
+            <i class="glyphicon glyphicon-log-in hide visible-xs "></i>
+        </a>
+    </li>
+</ul>

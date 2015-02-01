@@ -2,7 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: @StoreBundle/Resources/config/translations.yml }
-#    - { resource: @StoreBundle/Resources/config/mappings.yml }
+    - { resource: @StoreBundle/Resources/config/mappings.yml }
     - { resource: @StoreBundle/Resources/config/filesystem.yml }
     - { resource: @StoreBundle/Resources/config/cache.yml }
 

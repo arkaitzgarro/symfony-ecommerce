@@ -1,12 +1,32 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6">
+                    <div class="pull-left">
+                        <ul class="user-menu ">
+                            <li> <a href="#"> <span class="hidden-xs">{{ 'help'|trans({}, 'store') }}</span><i class="glyphicon glyphicon-info-sign hide visible-xs "></i> </a> </li>
+                            <li class="phone-number"> <a href="callto:+555123456"> <span> <i class="glyphicon glyphicon-phone-alt "></i></span> <span class="hidden-xs" style="margin-left:5px"> +88 555 123456 </span> </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-xs-6 col-md-6 no-margin no-padding">
+                    <div class="pull-right">
+                        {% render url('store_user_nav') %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#clotheshop-navbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
+            <a class="navbar-brand " href="{{ url('store_homepage') }}"> <img src="{{ asset('bundles/store/img/logo.png') }}" alt="{{ getConfiguration('store.name') }}"> </a>
         </div>
 
         <div class="collapse navbar-collapse" id="shop-navbar">

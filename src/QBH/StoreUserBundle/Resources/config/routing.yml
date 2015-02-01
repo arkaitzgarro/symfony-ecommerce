@@ -1,0 +1,9 @@
+store_user_nav:
+    pattern: /nav
+    defaults:
+        _controller: StoreUserBundle:User:nav
+
+store_login:
+    pattern: /login
+    defaults:
+        _controller: StoreUserBundle:Security:login

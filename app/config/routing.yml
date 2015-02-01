@@ -26,13 +26,20 @@ admin_logout:
 elcodi_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
 
-StoreCurrencyBundle:
+store_currency_bundle:
     resource: "@StoreCurrencyBundle/Controller/"
     type:     annotation
 
-StoreLanguageBundle:
+store_language_bundle:
     resource: "@StoreLanguageBundle/Controller/"
     type:     annotation
+
+store_user_i18n_routes:
+    resource: "@StoreUserBundle/Resources/config/routing.yml"
+    type:     be_simple_i18n
+    prefix:
+        es: /cliente
+        en: /customer
 
 store_bundle:
     resource: "@StoreBundle/Resources/config/routing.yml"

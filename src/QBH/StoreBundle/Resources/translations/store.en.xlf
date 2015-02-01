@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="store.en.xlf">
+        <body>
+            <trans-unit id="1">
+                <source>currency</source>
+                <target>Currency</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>language</source>
+                <target>Language</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>help</source>
+                <target>Help</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>sign_in</source>
+                <target>Sign in</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>create_account</source>
+                <target>Create account</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
