@@ -4,6 +4,11 @@ elcodi_entity_translator:
         master_locale: es
         fallback: true
     configuration:
+        Elcodi\Component\Currency\Entity\Interfaces\CurrencyInterface:
+            alias: currency
+            idGetter: getIso
+            fields:
+                name: ~
         Elcodi\Component\Language\Entity\Interfaces\LanguageInterface:
             alias: language
             idGetter: getIso

@@ -1,0 +1,16 @@
+{% if currencies|length > 1 %}
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ 'currency'|trans({}, 'store') }} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                {% for currency in currencies %}
+                <li {% if currency == activeCurrency %}class="active"{% endif %}>
+                    <a href="{{ url("store_currency_switch", {'iso': currency.iso}) }}">
+                        {{ currency.symbol }} ({{ currency.iso }})
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+{% endif %}

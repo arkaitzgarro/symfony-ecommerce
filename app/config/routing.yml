@@ -23,8 +23,16 @@ admin_login_check:
 admin_logout:
     path: /gestor/logout
 
-core_media_bundle:
+elcodi_media_bundle:
     resource: "@ElcodiMediaBundle/Resources/config/routing.yml"
+
+StoreCurrencyBundle:
+    resource: "@StoreCurrencyBundle/Controller/"
+    type:     annotation
+
+StoreLanguageBundle:
+    resource: "@StoreLanguageBundle/Controller/"
+    type:     annotation
 
 store_bundle:
     resource: "@StoreBundle/Resources/config/routing.yml"
