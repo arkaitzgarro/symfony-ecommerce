@@ -1,0 +1,12 @@
+EUR:
+    name: Euro Member Countries
+    symbol: €
+    enabled: 1
+GBP:
+    name: United Kingdom Pound
+    symbol: £
+    enabled: 0
+USD:
+    name: United States Dollar
+    symbol: $
+    enabled: 1

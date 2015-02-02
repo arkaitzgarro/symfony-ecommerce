@@ -31,6 +31,7 @@ class ProductAdmin extends BaseAdmin
                     'sort_parent_association_mappings' => array(array('fieldName' => 'manufacturer'))
                     )
             )
+            ->add('showInHome', 'boolean', array('label' => 'Portada', 'editable' => true))
             ->add('enabled', 'boolean', array('label' => 'Activo', 'editable' => true))
         ;
 

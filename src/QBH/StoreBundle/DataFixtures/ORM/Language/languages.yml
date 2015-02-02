@@ -1,0 +1,9 @@
+en:
+    name: English
+    enabled: 1
+es:
+    name: Spanish
+    enabled: 1
+fr:
+    name: French
+    enabled: 0

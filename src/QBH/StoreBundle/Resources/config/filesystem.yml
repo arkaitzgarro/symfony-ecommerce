@@ -4,6 +4,19 @@ knp_gaufrette:
             local:
                 directory: %kernel.root_dir%/../web/images
                 create: true
+        product_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/images/products
+                create: true
+        category_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/images/categories
+                create: true
+
     filesystems:
         local:
             adapter:    local
+        product_image_fs:
+            adapter:    product_adapter
+        category_image_fs:
+            adapter:    category_adapter

@@ -99,7 +99,3 @@ elcodi_currency:
         default_currency: EUR
     rates_provider:
         currency_base: EUR
-
-elcodi_product:
-    products:
-        use_stock: true

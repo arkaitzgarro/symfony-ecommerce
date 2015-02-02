@@ -619,12 +619,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineCacheBundle.git",
-                "reference": "f9486f0eee263612136ac198322400c0460ca481"
+                "reference": "78928cc5fb0f1cde57a973002fa0c5c9ced77bac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/f9486f0eee263612136ac198322400c0460ca481",
-                "reference": "f9486f0eee263612136ac198322400c0460ca481",
+                "url": "https://api.github.com/repos/doctrine/DoctrineCacheBundle/zipball/78928cc5fb0f1cde57a973002fa0c5c9ced77bac",
+                "reference": "78928cc5fb0f1cde57a973002fa0c5c9ced77bac",
                 "shasum": ""
             },
             "require": {
@@ -694,7 +694,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-02-01 05:00:10"
+            "time": "2015-02-02 04:53:40"
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",

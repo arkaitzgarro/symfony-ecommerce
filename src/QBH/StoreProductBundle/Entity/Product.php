@@ -37,8 +37,6 @@ class Product extends BaseProduct
 
     public function __construct()
     {
-        parent::__construct();
-
         $this->tags = new ArrayCollection();
     }
 

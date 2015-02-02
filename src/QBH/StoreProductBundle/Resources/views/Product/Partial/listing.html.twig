@@ -4,13 +4,20 @@
         'locale': app.request.locale
     }) %}
 
-    <a href="{{productRoute}}" class="product-grid {% if product.stock <= 0 %}sold-out{% endif %}">
-        <img src="{{ asset(product.getPrincipalImage().webPath)|apply_filter('grid') }}" alt="{{product.getName}}" class="img-responsive center-block">
-        <h3 class="h3 text-center uppercase letter-spacing">{{ product.getName() }}</h3>
-        <p class="description text-center txt-gray">{{ product.getdescriptionListing() }}</p>
-        <p class="price text-center">{{ product.priceMoney|print_convert_money() }}</p>
-        {% if product.stock <= 0 %}
-            <span class="notice uppercase text-center letter-spacing">{{'soldout'|trans({}, 'product')}}</span>
-        {% endif %}
+    <a href="{{ productRoute }}" class="product-grid {% if product.stock <= 0 %}sold-out{% endif %}">
+        <img
+            class="img-responsive center-block"
+            alt="{{product.name}}"
+            src="{{ product.images|length > 0 ? product.images.first|resize({
+                'width': 372,
+                'height': 291,
+                'type': 5
+            }) : 'http://placehold.it/372x291' }}"  >
+        {#<h3 class="h3 text-center uppercase letter-spacing">{{ product.name }}</h3>#}
+        {#<p class="description text-center txt-gray">{{ product.description }}</p>#}
+        {#<p class="price text-center">{{ product.priceMoney|print_convert_money() }}</p>#}
+        {#{% if product.stock <= 0 %}#}
+            {#<span class="notice uppercase text-center letter-spacing">{{'soldout'|trans({}, 'product')}}</span>#}
+        {#{% endif %}#}
     </a>
 </div>
