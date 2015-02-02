@@ -92,8 +92,9 @@ class LanguageController extends Controller
 
         if ($language instanceof LanguageInterface) {
             // TODO: translate URL
-            $referrer = $request->headers->get('referer')
-                ?: $this->generateUrl('store_homepage');
+//            $referrer = $request->headers->get('referer')
+//                ?: $this->generateUrl('store_homepage', ['locale' => $request->getLocale()]);
+            $referrer = $this->generateUrl('store_homepage', ['locale' => $request->getLocale()]);
         }
 
         return $this->redirect($referrer);

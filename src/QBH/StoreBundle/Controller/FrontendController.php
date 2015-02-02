@@ -28,10 +28,16 @@ class FrontendController extends BaseController
 {
     public function indexAction(Request $request)
     {
+        $productCollectionProvider = $this
+            ->container
+            ->get('elcodi.product_collection_provider');
+
+        $products = $productCollectionProvider->getHomeProducts();
+
         return $this->render(
             'StoreBundle:Frontend:index.html.twig',
             [
-
+                'products' => $products
             ]
         );
     }

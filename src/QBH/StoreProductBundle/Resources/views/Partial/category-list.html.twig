@@ -1,0 +1,32 @@
+<ul class="dropdown-menu">
+    <!-- megamenu-content -->
+
+    {#<li{% if not currentCategoryId %} class="active"{% endif %}>#}
+        {#<a href="{{ url('store_homepage') }}">New</a>#}
+    {#</li>#}
+
+    <li class="megamenu-content">
+        {% for category in categoryTree %}
+        <ul class="col-lg-2  col-sm-2 col-md-2 unstyled {% if currentCategoryId == category.entity.id %}active{% endif %} {% if loop.first %}no-margin-left{% endif %}">
+            <li>
+                <p>
+                    <strong>
+                        <a href="{{ url('store_category_products_list', {
+                            slug: category.entity.slug,
+                            locale: app.request.locale
+                        }) }}">{{ category.entity.name }}</a>
+                    </strong>
+                </p>
+            </li>
+            {% for subCategory in category.children %}
+            <li>
+                <a href="{{ url('store_category_products_list', {
+                    slug: subCategory.entity.slug,
+                    locale: app.request.locale
+                }) }}">{{ subCategory.entity.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </li>
+</ul>

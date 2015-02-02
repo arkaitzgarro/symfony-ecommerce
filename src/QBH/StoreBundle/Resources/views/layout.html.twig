@@ -2,5 +2,9 @@
 {% block body %}
     {% render(controller('StoreBundle:Frontend:header')) %}
 
+    <div class="container main-container">
+        {% block body_content %}{% endblock %}
+    </div>
+
     {% render(controller('StoreBundle:Frontend:footer')) %}
 {% endblock %}

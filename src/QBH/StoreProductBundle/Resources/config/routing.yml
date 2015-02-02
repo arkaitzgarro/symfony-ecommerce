@@ -1,0 +1,24 @@
+store_categories_nav:
+    locales:
+        es: "/categorias/nav"
+        en: "/categories/nav"
+    defaults:
+        _controller: StoreProductBundle:Category:nav
+
+store_category_products_list:
+    locales:
+        es: "/productos/{slug}"
+        en: "/products/{slug}"
+    defaults:
+        _controller: StoreProductBundle:Category:view
+    requirements:
+        slug: "[a-zA-Z0-9-]+"
+
+store_product_view:
+    locales:
+        es: "/articulo/{slug}"
+        en: "/item/{slug}"
+    defaults:
+        _controller: StoreProductBundle:Product:view
+    requirements:
+        slug: "[a-zA-Z0-9-]+"

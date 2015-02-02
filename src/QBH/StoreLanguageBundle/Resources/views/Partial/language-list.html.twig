@@ -1,16 +1,30 @@
+{# View as inline list #}
 {% if languages|length > 1 %}
-    <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ 'language'|trans({}, 'store') }} <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                {% for language in languages %}
-                    <li {% if language == app.request.locale %}class="active"{% endif %}>
-                        <a href="{{ url("store_language_switch", {'iso': language.iso}) }}">
-                            {{ language.iso }}
-                        </a>
-                    </li>
-                {% endfor %}
-            </ul>
-        </li>
+    <ul class="nav navbar-nav navbar-right list-inline">
+        {% for language in languages %}
+            <li {% if language == app.request.locale %}class="active"{% endif %}>
+                <a href="{{ url("store_language_switch", {'iso': language.iso}) }}">
+                    {{ language.iso }}
+                </a>
+            </li>
+        {% endfor %}
     </ul>
 {% endif %}
+
+{# View as dropdown #}
+{#{% if languages|length > 1 %}#}
+    {#<ul class="nav navbar-nav navbar-right">#}
+        {#<li class="dropdown">#}
+            {#<a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ 'language'|trans({}, 'store') }} <b class="caret"></b></a>#}
+            {#<ul class="dropdown-menu">#}
+                {#{% for language in languages %}#}
+                    {#<li {% if language == app.request.locale %}class="active"{% endif %}>#}
+                        {#<a href="{{ url("store_language_switch", {'iso': language.iso}) }}">#}
+                            {#{{ language.iso }}#}
+                        {#</a>#}
+                    {#</li>#}
+                {#{% endfor %}#}
+            {#</ul>#}
+        {#</li>#}
+    {#</ul>#}
+{#{% endif %}#}

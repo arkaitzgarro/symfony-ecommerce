@@ -1,9 +1,21 @@
 {% extends 'StoreBundle::layout.html.twig' %}
 
+{% trans_default_domain "store" %}
+
 {% block stylesheets %}
 {% endblock %}
 
 {% block body_content %}
+    <div class="row">
+        <h3 class="section-title text-center">
+            <span>{{ 'new_arrivals'|trans }}</span>
+        </h3>
+
+        <div class="featured-products">
+            {% include 'StoreProductBundle:Product/Partial:grid.html.twig' with { 'products' : products } %}
+        </div>
+
+    </div>
 {% endblock %}
 
 {% block javascripts_footer %}

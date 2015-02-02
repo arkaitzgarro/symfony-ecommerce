@@ -25,6 +25,25 @@ ul, ol {
     text-transform: uppercase;
 }
 
+.navbar-nav > li > a {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-nav.list-inline {
+    text-align: center;
+}
+
+.navbar-nav.list-inline > li {
+    display: inline-block;
+}
+
 .user-menu li {
     display: block;
     float: left;
@@ -35,8 +54,8 @@ ul, ol {
     display: block;
     float: right;
     font-size: 12px;
-    line-height: 30px;
-    padding: 0 20px 0 0;
+    line-height: normal;
+    padding: 3px 20px 0 0;
     text-decoration: none;
     transition: opacity 0.2s ease-out 0s;
     -webkit-transition: opacity 0.21s ease-out 0s;
@@ -45,17 +64,139 @@ ul, ol {
     -o-transition: opacity 0.2s ease-out 0s;
 }
 
-@media (max-width: 767px) {
-    .navbar-top i {
-        font-size: 16px;
-        font-style: normal;
-        font-weight: normal;
-        line-height: 1;
-        padding: 3px 0 0;
+.navbar-top i {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding: 3px 0 0;
+}
+
+/***  ------- Mega Menu Start ------- ***/
+.megamenu .nav, .megamenu .dropup, .megamenu .dropdown, .megamenu .collapse {
+    position: static;
+}
+.megamenu .navbar-inner, .megamenu .container {
+    position: relative;
+}
+.megamenu .dropdown-menu {
+    left: auto;
+}
+.megamenu .dropdown-menu > li {
+    display: block;
+}
+.megamenu .nav.pull-right .dropdown-menu {
+    right: 0;
+}
+.megamenu .megamenu-content {
+    padding: 20px 30px;
+    *zoom: 1;
+}
+.megamenu .megamenu-content:before, .megamenu .megamenu-content:after {
+    display: table;
+    content: "";
+    line-height: 0;
+}
+.megamenu .megamenu-content:after {
+    clear: both;
+}
+.megamenu.navbar .nav > li > .dropdown-menu:after, .megamenu.navbar .nav > li > .dropdown-menu:before {
+    display: none;
+}
+.megamenu .dropdown.megamenu-fullwidth .dropdown-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+.megamenu .dropdown.megamenu-80width .dropdown-menu {
+    width: 80%;
+    left: 0;
+    right: 0;
+}
+.megamenu .dropdown.megamenu-80width .dropdown-menu {
+    width: 80%;
+    left: 0;
+    right: 0;
+}
+.megamenu .dropdown.megamenu-50width .dropdown-menu {
+    width: 50%;
+    left: 0;
+    right: 0;
+}
+.megamenu .dropdown.megamenu-40width .dropdown-menu {
+    width: 40%;
+    left: 0;
+    right: 0;
+}
+.megamenu .dropdown.megamenu-fullwidth .dropdown-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+
+.main-container {
+    margin-top: 80px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: lighter;
+    line-height: 44px;
+    margin: 10px 0 20px;
+    padding: 0;
+    position: relative;
+}
+
+.section-title:after {
+    background: #DDD;
+    content: "";
+    display: block;
+    height: 1px;
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    z-index: 1;
+}
+
+.section-title span {
+    color: #2c3e50;
+    display: inline-block;
+    text-transform: uppercase;
+    width: auto;
+    background: #FFFFFF;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Small screen / tablet */
+@media (min-width: 768px) {
+    .user-menu li a {
+        padding-top: 0;
+        line-height: 30px;
     }
 
-    .user-menu li a {
-        padding-top: 3px;
-        line-height: normal;
+    .section-title:after {
+        width: 70%;
+        margin-left: 15%;
     }
+}
+
+/* Medium screen / desktop */
+@media (min-width: 992px) {
+    .megamenu .dropdown.megamenu-fullwidth .dropdown-menu {
+        width: auto;
+    }
+    .megamenu .megamenu-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .megamenu .dropdown-menu > li > ul {
+        display: block;
+    }
+}
+
+/* Large screen / wide desktop */
+@media (min-width: 1200px) {
+
 }

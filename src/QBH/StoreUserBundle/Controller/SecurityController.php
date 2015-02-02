@@ -21,7 +21,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class ControllerSecurity
+ * Class Security controller
  */
 class SecurityController extends Controller
 {

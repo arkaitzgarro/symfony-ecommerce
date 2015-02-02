@@ -1,6 +1,6 @@
 <?php
 
-namespace QBH\StoreUserBundle\Controller;
+namespace QBH\StoreProductBundle\Controller;
 
 /*
  * This file is part of the Elcodi package.
@@ -17,31 +17,36 @@ namespace QBH\StoreUserBundle\Controller;
  * @author Arkaitz Garro <hola@arkaitzgarro.com>
  */
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Class User controller
+ * Category controller
  */
-class UserController extends Controller
+class CategoryController extends Controller
 {
     /**
-     * User navigator
+     * Renders the category nav component
      *
      * @return Response Response
-     *
-     * @Route(
-     *      path = "/nav",
-     *      name = "store_user_nav",
-     *      methods = {"GET"}
-     * )
      */
     public function navAction()
     {
+        $currentCategoryId = $this
+            ->get('request_stack')
+            ->getMasterRequest()
+            ->get('id');
+
+        $categoryTree = $this
+            ->get('elcodi.core.product.service.category_manager')
+            ->load();
+
         return $this->render(
-            'StoreUserBundle:Partial:user-nav.html.twig',
+            'StoreProductBundle:Partial:category-list.html.twig',
             [
+                'currentCategoryId' => $currentCategoryId,
+                'categoryTree'      => $categoryTree,
             ]
         );
     }

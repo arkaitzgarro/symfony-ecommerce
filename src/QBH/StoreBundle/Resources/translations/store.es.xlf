@@ -22,6 +22,14 @@
                 <source>create_account</source>
                 <target>Registrarse</target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>shop</source>
+                <target>Tienda</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>new_arrivals</source>
+                <target>Destacados</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

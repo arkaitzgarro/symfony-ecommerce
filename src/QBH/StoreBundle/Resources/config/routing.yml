@@ -1,7 +1,12 @@
-store_homepage:
-    path: /{_locale}
+homepage:
+    path: /
     defaults:
         _controller: StoreBundle:Frontend:index
         _locale: es
-    requirements:
-        _locale: es|en
+
+store_homepage:
+    locales:
+        es: "/es"
+        en: "/en"
+    defaults:
+        _controller: StoreBundle:Frontend:index

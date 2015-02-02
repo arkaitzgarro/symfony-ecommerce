@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-sm-6 col-md-4 product-listing">
+    {% set productRoute = url('store_product_view', {
+        'slug': product.getSlug,
+        'locale': app.request.locale
+    }) %}
+
+    <a href="{{productRoute}}" class="product-grid {% if product.stock <= 0 %}sold-out{% endif %}">
+        <img src="{{ asset(product.getPrincipalImage().webPath)|apply_filter('grid') }}" alt="{{product.getName}}" class="img-responsive center-block">
+        <h3 class="h3 text-center uppercase letter-spacing">{{ product.getName() }}</h3>
+        <p class="description text-center txt-gray">{{ product.getdescriptionListing() }}</p>
+        <p class="price text-center">{{ product.priceMoney|print_convert_money() }}</p>
+        {% if product.stock <= 0 %}
+            <span class="notice uppercase text-center letter-spacing">{{'soldout'|trans({}, 'product')}}</span>
+        {% endif %}
+    </a>
+</div>

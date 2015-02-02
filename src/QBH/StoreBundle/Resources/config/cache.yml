@@ -5,7 +5,7 @@ doctrine_cache:
         # Categories cache
         #
         elcodi_categories:
-            type: redis
+            type: array
             namespace: categories
 
         #

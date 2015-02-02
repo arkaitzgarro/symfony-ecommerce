@@ -22,6 +22,14 @@
                 <source>create_account</source>
                 <target>Create account</target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>shop</source>
+                <target>Shop</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>new_arrivals</source>
+                <target>New arrivals</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

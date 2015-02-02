@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top megamenu">
     <div class="navbar-top">
         <div class="container">
             <div class="row">
@@ -30,6 +30,13 @@
         </div>
 
         <div class="collapse navbar-collapse" id="shop-navbar">
+            <ul class="nav navbar-nav">
+                <!-- change width of megamenu = use class > megamenu-fullwidth, megamenu-60width, megamenu-40width -->
+                <li class="dropdown megamenu-fullwidth">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"> {{ 'shop'|trans({}, 'store') }} <b class="caret"> </b> </a>
+                    {% render url('store_categories_nav') %}
+                </li>
+            </ul>
             {% render url('store_language_nav') %}
             {% render url('store_currency_nav') %}
         </div>
