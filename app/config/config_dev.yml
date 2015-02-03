@@ -42,3 +42,9 @@ raul_fraile_ladybug:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+elcodi_media:
+    images:
+        resize:
+            converter_bin_path: /usr/local/bin/convert
+            converter_default_profile: /usr/local/share/color/icc/colord/sRGB.icc

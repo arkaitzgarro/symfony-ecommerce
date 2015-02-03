@@ -21,3 +21,9 @@ elcodi_product:
         product:
             class: QBH\StoreProductBundle\Entity\Product
             mapping_file: @StoreProductBundle/Resources/config/doctrine/Product.orm.yml
+
+elcodi_media:
+    mapping:
+        image:
+            class: QBH\StoreMediaBundle\Entity\Image
+            mapping_file: @StoreMediaBundle/Resources/config/doctrine/Image.orm.yml
