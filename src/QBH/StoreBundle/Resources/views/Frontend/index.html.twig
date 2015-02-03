@@ -7,9 +7,9 @@
 
 {% block body_content %}
     <div class="row">
-        <h3 class="section-title text-center">
+        <h2 class="section-title text-center">
             <span>{{ 'new_arrivals'|trans }}</span>
-        </h3>
+        </h2>
 
         <div class="featured-products">
             {% include 'StoreProductBundle:Product/Partial:grid.html.twig' with { 'products' : products } %}

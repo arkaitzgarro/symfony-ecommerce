@@ -59,8 +59,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
         $fileIdentifierTransformer = $this->container->get('elcodi.file_identifier_transformer');
         $menCategory = $this->getReference('category-men');
         $womenCategory = $this->getReference('category-women');
-        $currency = $this->getReference('currency-USD');
-        $currencyEuros = $this->getReference('currency-EUR');
+        $currency = $this->getReference('currency-EUR');
 
         /**
          * @var ObjectManager $productObjectManager
@@ -199,7 +198,7 @@ class ProductData extends AbstractFixture implements DependentFixtureInterface
             ->addCategory($womenCategory)
             ->setPrincipalCategory($womenCategory)
             ->setStock(10000)
-            ->setPrice(Money::create(399, $currencyEuros))
+            ->setPrice(Money::create(399, $currency))
             ->setEnabled(true);
 
         $productObjectManager->persist($product);

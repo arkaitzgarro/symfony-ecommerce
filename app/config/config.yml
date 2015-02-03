@@ -87,13 +87,6 @@ sonata_admin:
         list:    AdminCoreBundle:CRUD:list.html.twig
         edit:    AdminCoreBundle:CRUD:edit.html.twig
 
-elcodi_configuration:
-    elements:
-        0:
-            key: store_name
-            name: Store name
-            reference: reference
-
 elcodi_currency:
     currency:
         default_currency: EUR
