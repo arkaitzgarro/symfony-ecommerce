@@ -21,5 +21,12 @@ use \Elcodi\Component\Media\Entity\Image as BaseImage;
 
 class Image extends BaseImage
 {
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getPath() . DIRECTORY_SEPARATOR . $this->getId() . '.' . $this->getExtension();
+    }
 
 }

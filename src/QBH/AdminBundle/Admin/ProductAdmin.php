@@ -108,17 +108,17 @@ class ProductAdmin extends BaseAdmin
                 ->add('enabled', null, array('label' => 'Activo', 'required' => false))
             ->end()
 
-            ->with('gallery', array('label' => 'Galería'))
-                ->add(
-                    'images',
-                    'gallery',
-                    array(
-                        'label' => false,
-                        'required' => false,
-                        'by_reference' => false,
-                    )
-                )
-            ->end()
+//            ->with('gallery', array('label' => 'Galería'))
+//                ->add(
+//                    'images',
+//                    'gallery',
+//                    array(
+//                        'label' => false,
+//                        'required' => false,
+//                        'by_reference' => false,
+//                    )
+//                )
+//            ->end()
         ;
     }
 

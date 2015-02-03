@@ -1,4 +1,4 @@
-<div class="products row">
+<div class="products">
     {% for product in products %}
         {% include 'StoreProductBundle:Product/Partial:listing.html.twig' with {'product' : product} %}
     {% endfor %}

@@ -4,7 +4,7 @@
         'locale': app.request.locale
     }) %}
 
-    <a href="{{ productRoute }}" class="product-grid {% if product.stock <= 0 %}sold-out{% endif %}">
+    <a href="{{ productRoute }}" class="product-grid thumbnail {% if product.stock <= 0 %}sold-out{% endif %} {% if product.reducedPrice.amount > 0 %}sale{% endif %}">
 
         {% block pin_image %}
         <img
@@ -17,28 +17,31 @@
             }) : 'http://placehold.it/372x291' }}" />
         {% endblock %}
 
-        <h3 class="h3 text-center uppercase letter-spacing">{{ product.name }}</h3>
+        <div class="caption">
 
-        <p class="description text-center txt-gray">{{ product.description }}</p>
+            <h3 class="h3 text-center uppercase letter-spacing">{{ product.name }}</h3>
 
-        <p class="price text-center">
-            {% if product.reducedPrice.amount > 0 %}
-                {% set product_price = product.reducedPrice %}
-            {% else %}
+            <div class="description text-center txt-gray">{{ product.description|raw }}</div>
+
+            <p class="price text-center">
                 {% set product_price = product.price %}
-            {% endif %}
+                <span class="regular-price">{{ product.price|print_convert_money() }}</span>
 
-            {{ product_price|print_convert_money() }}
+                {% if product.reducedPrice.amount > 0 %}
+                    {% set product_price = product.reducedPrice %}
+                    <span class="reduced-price">{{ product_price|print_convert_money() }}</span>
+                {% endif %}
 
-            {% if product_price.currency.iso != app.session.get('currency_id') %}
+                {% if product_price.currency.iso != app.session.get('currency_id') %}
 
-                - <span class="original-price">({{ product_price|print_money() }})</span>
+                    - <span class="original-price">({{ product_price|print_money() }})</span>
 
-            {% endif %}
+                {% endif %}
 
-            {% if product.stock <= 0 %}
-                <span class="notice uppercase text-center letter-spacing">{{'soldout'|trans({}, 'product')}}</span>
-            {% endif %}
-        </p>
+                {% if product.stock <= 0 %}
+                    <span class="notice uppercase text-center letter-spacing">{{'soldout'|trans({}, 'product')}}</span>
+                {% endif %}
+            </p>
+        </div>
     </a>
 </div>
