@@ -219,6 +219,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     font-weight: lighter;
 }
 
+.product-record {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* Small screen / tablet */
 @media (min-width: 768px) {
     .user-menu li a {
@@ -233,6 +238,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
     .product-grid {
         min-height: 450px;
+    }
+
+    .product-record {
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -253,6 +263,11 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
 
     .product-grid {
         min-height: 420px;
+    }
+
+    .product-record {
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 }
 

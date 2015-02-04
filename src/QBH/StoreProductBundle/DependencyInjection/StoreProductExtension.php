@@ -93,9 +93,11 @@ class StoreProductExtension extends AbstractExtension implements EntitiesOverrid
     public function getConfigFiles(array $config)
     {
         return [
+            'classes',
             'factories',
             'objectManagers',
             'repositories',
+            'services',
         ];
     }
 

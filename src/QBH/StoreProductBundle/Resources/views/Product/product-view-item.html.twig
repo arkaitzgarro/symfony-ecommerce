@@ -1,0 +1,91 @@
+{#
+ # Base view for a Product detail page with no variants.
+ #}
+{% extends 'StoreBundle::layout.html.twig' %}
+
+{% trans_default_domain "store" %}
+
+{% block body_content  %}
+    <!-- Product Detail -->
+    <section class="product-record">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    {% block product_image %}
+                    <img class="product-image img-responsive center-block" src="{{ product.images|length > 0 ? product.images.first|resize({
+                        'width': 768,
+                        'height': 600,
+                        'type': 3
+                    }) : 'http://placehold.it/772x604' }}" alt="{{ product.name }}" />
+                    {% endblock product_image %}
+
+                    {% if product.images|length > 1 %}
+                    <div class="gallery-responsive">
+                        <div class="row">
+                        {% for image in product.images %}
+                            <a href="#" class="fancybox fancybox.ajax col-xs-4" rel="gallery">
+                                <img
+                                    class="img-responsive"
+                                    src="{{ image|resize({
+                                        'width': 225,
+                                        'height': 176,
+                                        'type': 5
+                                    }) }}" alt="{{ product.name }}" />
+                            </a>
+                        {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="col-xs-12 col-sm-6 {% if product.stock <= 0 %}sold-out{% endif %} {% if product.reducedPrice.amount > 0 %}sale{% endif %}">
+                    <h2 class="h2 uppercase">{{ product.name }}</h2>
+
+                    <div class="price">
+                        {% set product_price = product.price %}
+                        <span class="regular-price">{{ product.price|print_convert_money() }}</span>
+
+                        {% if product.reducedPrice.amount > 0 %}
+                            {% set product_price = product.reducedPrice %}
+                            <span class="reduced-price">{{ product_price|print_convert_money() }}</span>
+                        {% endif %}
+
+                        {% if product_price.currency.iso != app.session.get('currency_id') %}
+
+                            - <span class="original-price">({{ product_price|print_money() }})</span>
+
+                        {% endif %}
+                    </div>
+
+                    {{ product.description|raw }}
+
+                    {% block product_info_add_basket %}
+                    {% if product.stock > 0 %}
+                        <div class="actions row">
+                            <form id="product-add-to-cart" action="{{ url('store_cart_add_product', { locale: app.request.locale, id: product.id }) }}" enctype="multipart/form-data" data-action="add-to-cart" method="post">
+                                <div class="col-xs-2">
+                                    <input type="text" name="add-cart-quantity" value="1" class="text-center">
+                                </div>
+                                <div class="col-xs-5 col-sm-6 col-md-5">
+                                    <button class="btn btn-primary uppercase add-cart-product">{{ 'add_basket'|trans }}</button>
+                                </div>
+                            </form>
+                        </div>
+                    {% endif %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related products -->
+
+    {#{% include "@StoreWhiteTemplate/Modules/_product-related.html.twig" with {'products' : related_products} %}#}
+{% endblock body_content %}
+
+
+{#{% block pixels %}#}
+    {#<script>#}
+        {#_etc.push(["{{ store_tracker }}", 'product_view_' + {{ product.id }}]);#}
+    {#</script>#}
+{#{% endblock %}#}

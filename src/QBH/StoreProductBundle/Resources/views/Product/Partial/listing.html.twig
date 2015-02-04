@@ -1,6 +1,9 @@
+{% trans_default_domain "store" %}
+
 <div class="col-xs-12 col-sm-6 col-md-3 product-listing">
     {% set productRoute = url('store_product_view', {
         'slug': product.getSlug,
+        'id': product.id,
         'locale': app.request.locale
     }) %}
 
@@ -18,7 +21,7 @@
         {% endblock %}
 
         <div class="caption">
-
+            {% block product_info_details %}
             <h3 class="h3 text-center uppercase letter-spacing">{{ product.name }}</h3>
 
             <div class="description text-center txt-gray">{{ product.description|raw }}</div>
@@ -39,9 +42,10 @@
                 {% endif %}
 
                 {% if product.stock <= 0 %}
-                    <span class="notice uppercase text-center letter-spacing">{{'soldout'|trans({}, 'product')}}</span>
+                    <span class="notice uppercase text-center letter-spacing">{{ 'soldout'|trans }}</span>
                 {% endif %}
             </p>
+            {% endblock product_info_details %}
         </div>
     </a>
 </div>

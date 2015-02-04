@@ -1,0 +1,19 @@
+store_cart_add_product:
+    locales:
+        es: "/producto/{id}/agregar"
+        en: "/product/{id}/add"
+        fr: "/produit/{id}/ajouter"
+    defaults:
+        _controller: StoreCartBundle:Cart:addProduct
+    requirements:
+        id: \d+
+
+store_cart_view:
+    locales:
+        es: "/ver"
+        en: "/view"
+        fr: "/voir"
+    defaults:
+        _controller: StoreCartBundle:Cart:view
+    requirements:
+        method: GET

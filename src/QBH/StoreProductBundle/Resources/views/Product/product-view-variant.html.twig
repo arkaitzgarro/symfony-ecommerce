@@ -1,0 +1,57 @@
+{#
+ # View for a Product detail page with variants.
+ #}
+{% extends 'StoreProductBundle:Product:product-view-item.html.twig' %}
+
+{% trans_default_domain "store" %}
+
+{#
+ # The product_info_details should now display a form
+ # to select the product variant
+ #}
+{% block product_info_add_basket %}
+<form enctype="multipart/form-data" id="variant-add-to-cart" class="variant-add-to-cart"
+    data-action="add-to-cart" method="post" action="{{ url('store_cart_add_product', { locale: app.request.locale, id: product.id }) }}"
+    data-variant-info-url="{{ url('store_product_variant_info', { locale: app.request.locale, id: product.id }) }}">
+
+    <input name="add-cart-is-variant" value="1" type="hidden">
+
+    {% for attribute in product.attributes %}
+
+        <label for="variant-option-for-attribute[{{ attribute.id }}]">{{ attribute.name }}</label>
+
+        <select name="variant-option-for-attribute[{{ attribute.id }}]" class="variant-option-select">
+            {% for attributeValue in available_options(product, attribute) %}
+
+                <option value="{{ attributeValue.id }}">
+                    {{ attributeValue }}
+                </option>
+
+            {% endfor %}
+        </select>
+
+    {% endfor %}
+
+    <div id="add-basket-box-variant" class="add-basket-box actions">
+
+        <p class="hidden">
+            <label for="add-cart-quantity">Qty.</label>
+            <input name="add-cart-quantity" class="w60" value="1" type="number">
+        </p>
+        <p class="variant_not_found hidden">
+            {{'variant_not_found'|trans({}, 'product')}}
+        </p>
+        <p>
+            <input type="submit" class="btn btn-default" value="{{ 'add_basket'|trans }}">
+        </p>
+
+    </div>
+</form>
+{% endblock %}
+
+
+{#{% block pixels %}#}
+    {#<script>#}
+        {#_etc.push(["{{ store_tracker }}", 'product_view_' + {{ product.id }}]);#}
+    {#</script>#}
+{#{% endblock %}#}

@@ -16,9 +16,20 @@ store_category_products_list:
 
 store_product_view:
     locales:
-        es: "/articulo/{slug}"
-        en: "/item/{slug}"
+        es: "/articulo/{slug}/{id}"
+        en: "/item/{slug}/{id}"
     defaults:
         _controller: StoreProductBundle:Product:view
     requirements:
         slug: "[a-zA-Z0-9-]+"
+        id: "\d+"
+
+store_product_variant_info:
+    locales:
+        es: "/variante-info/{id}"
+        en: "/variant-info/{id}"
+        fr: "/variant-infos/{id}"
+    defaults:
+        _controller: StoreProductBundle:Product:variantInfo
+    requirements:
+        id: \d+
