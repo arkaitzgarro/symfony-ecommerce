@@ -30,10 +30,6 @@ store_currency_bundle:
     resource: "@StoreCurrencyBundle/Controller/"
     type:     annotation
 
-store_language_bundle:
-    resource: "@StoreLanguageBundle/Controller/"
-    type:     annotation
-
 store_product_bundle:
     resource: "@StoreProductBundle/Controller/"
     type:     annotation
@@ -41,6 +37,13 @@ store_product_bundle:
 store_bundle:
     resource: "@StoreBundle/Resources/config/routing.yml"
     type: be_simple_i18n
+
+store_language_i18n_routes:
+    resource: "@StoreLanguageBundle/Resources/config/routing.yml"
+    type:     be_simple_i18n
+    prefix:
+        es: /idioma
+        en: /language
 
 store_user_i18n_routes:
     resource: "@StoreUserBundle/Resources/config/routing.yml"
@@ -56,4 +59,3 @@ store_product_i18n_routes:
 store_cart_i18n_routes:
     resource: "@StoreCartBundle/Resources/config/routing/routing.yml"
     type:     be_simple_i18n
-    prefix:   /

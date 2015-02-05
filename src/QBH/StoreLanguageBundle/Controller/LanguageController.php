@@ -19,17 +19,12 @@ namespace QBH\StoreLanguageBundle\Controller;
 
 use Elcodi\Component\Language\Entity\Interfaces\LanguageInterface;
 use LogicException;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ControllerLanguage
- *
- * @Route(
- *      path = "/language",
- * )
  */
 class LanguageController extends Controller
 {
@@ -40,12 +35,6 @@ class LanguageController extends Controller
      * @return Response Response
      *
      * @throws LogicException No languages available
-     *
-     * @Route(
-     *      path = "/nav",
-     *      name = "store_language_nav",
-     *      methods = {"GET"}
-     * )
      */
     public function navAction(Request $request)
     {
@@ -74,12 +63,6 @@ class LanguageController extends Controller
      * @param string  $iso     Language iso
      *
      * @return RedirectResponse Last page
-     *
-     * @Route(
-     *      path = "/switch/{iso}",
-     *      name = "store_language_switch",
-     *      methods = {"GET"}
-     * )
      */
     public function switchAction(Request $request, $iso)
     {
@@ -94,7 +77,7 @@ class LanguageController extends Controller
             // TODO: translate URL
 //            $referrer = $request->headers->get('referer')
 //                ?: $this->generateUrl('store_homepage', ['locale' => $request->getLocale()]);
-            $referrer = $this->generateUrl('store_homepage', ['locale' => $request->getLocale()]);
+            $referrer = $this->generateUrl('store_homepage', ['locale' => $iso]);
         }
 
         return $this->redirect($referrer);

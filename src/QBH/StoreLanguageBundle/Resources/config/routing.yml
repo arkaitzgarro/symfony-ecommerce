@@ -1,0 +1,13 @@
+store_language_nav:
+    locales:
+        es: "/menu"
+        en: "/nav"
+    defaults:
+        _controller: StoreLanguageBundle:Language:nav
+
+store_language_switch:
+    locales:
+        es: "/cambiar/{iso}"
+        en: "/switch/{iso}"
+    defaults:
+        _controller: StoreLanguageBundle:Language:switch

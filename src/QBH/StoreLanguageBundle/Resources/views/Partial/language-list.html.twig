@@ -2,7 +2,7 @@
 {% if languages|length > 1 %}
     <ul class="nav navbar-nav navbar-right list-inline">
         {% for language in languages %}
-            <li {% if language == app.request.locale %}class="active"{% endif %}>
+            <li {% if language.iso == app.request.locale %}class="active"{% endif %}>
                 <a href="{{ url("store_language_switch", {'iso': language.iso}) }}">
                     {{ language.iso }}
                 </a>
@@ -18,7 +18,7 @@
             {#<a data-toggle="dropdown" class="dropdown-toggle" href="#">{{ 'language'|trans({}, 'store') }} <b class="caret"></b></a>#}
             {#<ul class="dropdown-menu">#}
                 {#{% for language in languages %}#}
-                    {#<li {% if language == app.request.locale %}class="active"{% endif %}>#}
+                    {#<li {% if language.iso == app.request.locale %}class="active"{% endif %}>#}
                         {#<a href="{{ url("store_language_switch", {'iso': language.iso}) }}">#}
                             {#{{ language.iso }}#}
                         {#</a>#}
