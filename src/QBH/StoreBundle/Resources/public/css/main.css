@@ -80,6 +80,16 @@ a:hover, a:focus {
     padding: 3px 0 0;
 }
 
+.form-control,
+.btn {
+    border-radius: 0;
+}
+
+.btn-primary {
+    background-color: #000;
+    border-color: #000;
+}
+
 /***  ------- Mega Menu Start ------- ***/
 .megamenu .nav, .megamenu .dropup, .megamenu .dropdown, .megamenu .collapse {
     position: static;
@@ -224,6 +234,10 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     margin-bottom: 10px;
 }
 
+.variant-options {
+    margin: 10px 0;
+}
+
 /* Small screen / tablet */
 @media (min-width: 768px) {
     .user-menu li a {
@@ -243,6 +257,14 @@ a.thumbnail:hover, a.thumbnail:focus, a.thumbnail.active {
     .product-record {
         margin-top: 20px;
         margin-bottom: 20px;
+    }
+
+    .product-record .h2 {
+        margin-top: 0;
+    }
+
+    .variant-options {
+        margin: 20px 0;
     }
 }
 

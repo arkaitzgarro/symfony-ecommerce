@@ -61,13 +61,15 @@
 
                     {% block product_info_add_basket %}
                     {% if product.stock > 0 %}
-                        <div class="actions row">
+                        <div class="add-basket-box row">
                             <form id="product-add-to-cart" action="{{ url('store_cart_add_product', { locale: app.request.locale, id: product.id }) }}" enctype="multipart/form-data" data-action="add-to-cart" method="post">
-                                <div class="col-xs-2">
-                                    <input type="text" name="add-cart-quantity" value="1" class="text-center">
-                                </div>
-                                <div class="col-xs-5 col-sm-6 col-md-5">
-                                    <button class="btn btn-primary uppercase add-cart-product">{{ 'add_basket'|trans }}</button>
+                                <div class="form-group">
+                                    <div class="col-xs-2">
+                                        <input type="text" name="add-cart-quantity" value="1" class="text-center form-control" type="number">
+                                    </div>
+                                    <div class="col-xs-5 col-sm-6 col-md-5">
+                                        <button class="btn btn-primary uppercase add-cart-product">{{ 'add_basket'|trans }}</button>
+                                    </div>
                                 </div>
                             </form>
                         </div>

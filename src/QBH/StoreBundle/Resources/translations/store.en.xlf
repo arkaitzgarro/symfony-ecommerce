@@ -30,6 +30,10 @@
                 <source>new_arrivals</source>
                 <target>New arrivals</target>
             </trans-unit>
+            <trans-unit id="8">
+                <source>add_basket</source>
+                <target>Add to basket</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

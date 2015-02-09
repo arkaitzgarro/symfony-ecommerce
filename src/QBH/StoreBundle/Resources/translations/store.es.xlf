@@ -30,6 +30,10 @@
                 <source>new_arrivals</source>
                 <target>Destacados</target>
             </trans-unit>
+            <trans-unit id="8">
+                <source>add_basket</source>
+                <target>Añadir a la cesta</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

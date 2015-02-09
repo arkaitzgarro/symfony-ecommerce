@@ -16,34 +16,34 @@
 
     <input name="add-cart-is-variant" value="1" type="hidden">
 
-    {% for attribute in product.attributes %}
+    <div class="variant-options">
+        {% for attribute in product.attributes %}
 
-        <label for="variant-option-for-attribute[{{ attribute.id }}]">{{ attribute.name }}</label>
+            <label for="variant-option-for-attribute[{{ attribute.id }}]">{{ attribute.name }}</label>
 
-        <select name="variant-option-for-attribute[{{ attribute.id }}]" class="variant-option-select">
-            {% for attributeValue in available_options(product, attribute) %}
+            <select name="variant-option-for-attribute[{{ attribute.id }}]" class="variant-option-select">
+                {% for attributeValue in available_options(product, attribute) %}
 
-                <option value="{{ attributeValue.id }}">
-                    {{ attributeValue }}
-                </option>
+                    <option value="{{ attributeValue.id }}">
+                        {{ attributeValue }}
+                    </option>
 
-            {% endfor %}
-        </select>
+                {% endfor %}
+            </select>
 
-    {% endfor %}
+        {% endfor %}
+    </div>
 
-    <div id="add-basket-box-variant" class="add-basket-box actions">
+    <div id="add-basket-box-variant" class="add-basket-box row">
 
-        <p class="hidden">
-            <label for="add-cart-quantity">Qty.</label>
-            <input name="add-cart-quantity" class="w60" value="1" type="number">
-        </p>
-        <p class="variant_not_found hidden">
-            {{'variant_not_found'|trans({}, 'product')}}
-        </p>
-        <p>
-            <input type="submit" class="btn btn-default" value="{{ 'add_basket'|trans }}">
-        </p>
+        <div class="form-group">
+            <div class="col-xs-2">
+                <input type="text" name="add-cart-quantity" value="1" class="text-center form-control">
+            </div>
+            <div class="col-xs-5 col-sm-6 col-md-5">
+                <input type="submit" class="btn btn-primary uppercase add-cart-product" value="{{ 'add_basket'|trans }}" />
+            </div>
+        </div>
 
     </div>
 </form>
